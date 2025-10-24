@@ -28,6 +28,9 @@ download_keyword() {
         --ignore-errors \
         --no-warnings \
         --add-header "User-Agent: Mozilla/5.0"
+
+        echo "⏳ Waiting 30 seconds before next download..."
+        sleep 30
 }
 
 export -f download_keyword
