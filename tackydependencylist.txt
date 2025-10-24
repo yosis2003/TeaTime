@@ -1,0 +1,9 @@
+Things you're gonna need in the env:
+
+
+
+ytdlp (through pip)
+ffmpeg
+Python
+PyTorch (through pip)
+Whisper (installed through pip)
