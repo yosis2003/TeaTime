@@ -7,3 +7,10 @@ ffmpeg
 Python
 PyTorch (through pip)
 Whisper (installed through pip)
+DENO
+
+
+
+YT-DLP notes:
+
+Updated to the latest version which fixed the 403 error issue. Used cookies from browser in order to go ahead and make it work.

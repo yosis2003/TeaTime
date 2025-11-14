@@ -1,8 +1,8 @@
 #!/bin/bash
 
 KEYWORD_FILE="keywords.txt"
-OUTPUT_DIR="~/Videos/project"
-VIDEOS_PER_KEYWORD=10
+OUTPUT_DIR="/home/yosis/Videos/trainingvids"
+VIDEOS_PER_KEYWORD=15
 FORMAT="mp4"
 
 mkdir -p "$OUTPUT_DIR"
@@ -13,9 +13,13 @@ if ! command -v parallel &>/dev/null; then
     exit 1
 fi
 
+
+
+
 export OUTPUT_DIR VIDEOS_PER_KEYWORD FORMAT
 
 download_keyword() {
+    echo "HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!"
     keyword="$1"
     [[ -z "$keyword" ]] && exit 0
     safe=$(echo "$keyword" | tr ' ' '_' | tr -cd '[:alnum:]_')
@@ -25,12 +29,16 @@ download_keyword() {
         "ytsearch${VIDEOS_PER_KEYWORD}:${keyword}" \
         -f "$FORMAT" \
         -o "${OUTPUT_DIR}/${safe}/%(title)s.%(ext)s" \
+        -S "+res:720" \
         --ignore-errors \
         --no-warnings \
-        --add-header "User-Agent: Mozilla/5.0"
+        --add-header "User-Agent: Mozilla/5.0" \
+        --add-header "Accept-Language:eng" \
+        --extractor-args "youtube:player-client=default,-tv_simply" \
+        --cookies-from-browser firefox \
+        --sleep-interval 7.5 \
+        --max-sleep-interval 40
 
-        echo "⏳ Waiting 30 seconds before next download..."
-        sleep 30
 }
 
 export -f download_keyword
