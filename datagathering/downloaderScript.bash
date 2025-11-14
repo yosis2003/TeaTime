@@ -37,7 +37,8 @@ download_keyword() {
         --extractor-args "youtube:player-client=default,-tv_simply" \
         --cookies-from-browser firefox \
         --sleep-interval 7.5 \
-        --max-sleep-interval 40
+        --max-sleep-interval 40 \
+        --sleep-requests 5
 
 }
 
