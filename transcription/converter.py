@@ -6,7 +6,7 @@ import ffmpeg
 
 def converter(dirpath, newDirectory, name):
     newName = name[:-4] + ".mp3"
-    ffmpeg.input(dirpath + "/" + name).output(newDirectory + "/" + newName).run()
+    ffmpeg.input(dirpath + "/" + name).output(newDirectory + "/" + newName).run(overwrite_output=True)
 
 
 def traverser():

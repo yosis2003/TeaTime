@@ -19,7 +19,6 @@ fi
 export OUTPUT_DIR VIDEOS_PER_KEYWORD FORMAT
 
 download_keyword() {
-    echo "HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!"
     keyword="$1"
     [[ -z "$keyword" ]] && exit 0
     safe=$(echo "$keyword" | tr ' ' '_' | tr -cd '[:alnum:]_')
