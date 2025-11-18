@@ -1,0 +1,13 @@
+If you are running Linux Mint, make sure that you do the following in order to make it work.
+
+Ensure that your gpu is getting detected by clinfo. If it's not follow the following very crucial steps
+
+
+sudo apt-get install beignet-opencl-icd ocl-icd-libopencl1 clinfo
+
+
+
+Then, you go ahead and make a new python env. Inside of that environment you run:
+
+pip install torch==2.7.1+xpu torchvision==0.22.1+xpu torchaudio==2.7.1+xpu intel-cmplr-lib-rt intel-cmplr-lib-ur intel-cmplr-lic-rt intel-sycl-rt pytorch-triton-xpu tcmlib umf intel-pti --index-url https://download.pytorch.org/whl/xpu --extra-index-url https://pypi.org/simple
+
